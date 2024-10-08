@@ -260,7 +260,7 @@ def load_qasper(dataset, path=None, shots=0, max_samples=None, seed=42):
 
 
 def load_multi_lexsum(dataset, path=None, shots=0, max_samples=None, seed=42):
-    all_data = load_dataset("allenai/multi_lexsum", name="v20230518")
+    all_data = load_dataset("allenai/multi_lexsum", name="v20230518", trust_remote_code=True)
     all_data = all_data.filter(lambda x: x["summary/short"] is not None)
 
     user_template = "You are given the legal documents in a civil rights lawsuit, and you are tasked to summarize the case. Write a concise summary of one paragraph (200 to 250 words). The summary should contain a short description of the background, the parties involved, and the outcomes of the case.\n\n{demo}Legal documents:\n{context}\n\nNow please summarize the case."
